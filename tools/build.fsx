@@ -16,7 +16,7 @@ let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/Int
 
 let fsCore =
     U.loc [
-        Environment.GetEnvironmentVariable("ProgramFiles")
+        Environment.GetEnvironmentVariable("ProgramFiles(x86)")
         "Reference Assemblies/Microsoft/FSharp/.NETFramework/v4.0/4.3.0.0/FSharp.Core.dll"
     ]
 
