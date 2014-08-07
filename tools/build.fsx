@@ -28,10 +28,6 @@ let opts =
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
             Verbosity = C.Level.Verbose
-            EmbeddedResources =
-                [
-                    C.EmbeddedResource.FromFile("js/knockout-3.1.0.js")
-                 ]
             WebSharperResources =
                 [
                     C.WebSharperResource.Create("Knockout", "knockout-3.1.0.js")
