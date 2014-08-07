@@ -34,7 +34,7 @@ let opts =
                  ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Knockout", "js/knockout-3.1.0.js")
+                    C.WebSharperResource.Create("Knockout", "knockout-3.1.0.js")
 
                 ]
     }
