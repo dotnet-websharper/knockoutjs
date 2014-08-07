@@ -30,7 +30,7 @@ let opts =
             Verbosity = C.Level.Verbose
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Knockout", "knockout-3.1.0.js")
+                    C.WebSharperResource.Create("Knockout", "//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js")
 
                 ]
     }
