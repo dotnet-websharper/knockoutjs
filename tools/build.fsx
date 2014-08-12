@@ -30,11 +30,11 @@ let opts =
             Verbosity = C.Level.Verbose
             EmbeddedResources =
                 [
-                    C.EmbeddedResource.FromFile("js/knockout.min.js")
+                    C.EmbeddedResource.FromFile("js/knockout-min.js")
                 ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Knockout", "knockout.min.js")
+                    C.WebSharperResource.Create("Knockout", "knockout-min.js")
                 ]
     }
 
