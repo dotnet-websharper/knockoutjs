@@ -28,10 +28,13 @@ let opts =
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
             Verbosity = C.Level.Verbose
+            EmbeddedResources =
+                [
+                    C.EmbeddedResource.FromFile("js/knockout.min.js")
+                ]
             WebSharperResources =
                 [
-                    C.WebSharperResource.Create("Knockout", "//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js")
-
+                    C.WebSharperResource.Create("Knockout", "knockout.min.js")
                 ]
     }
 
