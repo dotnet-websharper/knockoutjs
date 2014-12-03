@@ -3,7 +3,7 @@
   <metadata>
     <id>WebSharper.Knockout</id>
     <title>WebSharper.Knockout 3.1.0</title>
-    <version>2.5.0</version>
+    <version>3.0.0-alpha</version>
     <authors>IntelliFactory</authors>
     <description>WebSharper bindings for Knockout (3.1.0)</description>
     <language>en-US</language>
@@ -12,7 +12,7 @@
     <tags>f# fsharp mvvm ui framework</tags>
     <dependencies>
       <group>
-        <dependency id="WebSharper.TypeScript.Lib" version="2.5.0" />
+        <dependency id="WebSharper.TypeScript.Lib" version="3.0.0-alpha" />
       </group>
     </dependencies>
   </metadata>
