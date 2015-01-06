@@ -1,5 +1,4 @@
 #r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.Core.dll"
-#r "../packages/WebSharper/tools/net40/IntelliFactory.WebSharper.JQuery.dll"
 #r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.TypeScript.dll"
 //#r "C:/dev/websharper.typescript/build/Release/IntelliFactory.WebSharper.TypeScript.dll"
 #I "../packages/NuGet.Core/lib/net40-client"
@@ -12,7 +11,6 @@ open System
 open System.IO
 module C = IntelliFactory.WebSharper.TypeScript.Compiler
 module U = Utility
-type JQuery = IntelliFactory.WebSharper.JQuery.Resources.JQuery
 
 open IntelliFactory.Build
 let version =
