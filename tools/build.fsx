@@ -1,6 +1,6 @@
-#r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.Core.dll"
-#r "../packages/WebSharper.TypeScript/tools/net40/IntelliFactory.WebSharper.TypeScript.dll"
-//#r "C:/dev/websharper.typescript/build/Release/IntelliFactory.WebSharper.TypeScript.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.Core.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.TypeScript.dll"
+//#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
 #I "../packages/NuGet.Core/lib/net40-client"
 #r "NuGet.Core"
 #r "../packages/IntelliFactory.Core/lib/net45/IntelliFactory.Core.dll"
@@ -9,7 +9,7 @@
 
 open System
 open System.IO
-module C = IntelliFactory.WebSharper.TypeScript.Compiler
+module C = WebSharper.TypeScript.Compiler
 module U = Utility
 
 open IntelliFactory.Build
@@ -20,7 +20,7 @@ let version =
     v + s
 
 let dts = U.loc ["typings/knockout.d.ts"]
-let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/IntelliFactory.WebSharper.TypeScript.Lib.dll"]
+let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
 let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
@@ -31,7 +31,7 @@ let fsCore =
 
 let opts =
     {
-        C.Options.Create("IntelliFactory.WebSharper.Knockout", [dts]) with
+        C.Options.Create("WebSharper.Knockout", [dts]) with
             AssemblyVersion = Some (Version "3.0.0.0")
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
@@ -56,7 +56,7 @@ for msg in result.Messages do
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
-    let out = U.loc ["build/IntelliFactory.WebSharper.Knockout.dll"]
+    let out = U.loc ["build/WebSharper.Knockout.dll"]
     let dir = DirectoryInfo(Path.GetDirectoryName(out))
     if not dir.Exists then
         dir.Create()
