@@ -13,11 +13,11 @@ module C = WebSharper.TypeScript.Compiler
 module U = Utility
 
 open IntelliFactory.Build
-let version =
-    let bt = BuildTool().PackageId("WebSharper.Knockout", "3.0")
-    let v = PackageVersion.Full.Find(bt).ToString()
+let version, asmVersion =
+    let bt = BuildTool().PackageId("WebSharper.Knockout").VersionFrom("WebSharper")
+    let v = PackageVersion.Full.Find(bt)
     let s = match PackageVersion.Current.Find(bt).Suffix with Some s -> "-" + s | None -> ""
-    v + s
+    v.ToString() + s, sprintf "%i.%i.0.0" v.Major v.Minor
 
 let dts = U.loc ["typings/knockout.d.ts"]
 let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
@@ -32,7 +32,7 @@ let fsCore =
 let opts =
     {
         C.Options.Create("WebSharper.Knockout", [dts]) with
-            AssemblyVersion = Some (Version "3.0.0.0")
+            AssemblyVersion = Some (Version asmVersion)
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
             StrongNameKeyFile = Some snk
