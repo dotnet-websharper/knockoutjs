@@ -54,6 +54,8 @@ let result =
 for msg in result.Messages do
     printfn "%O" msg
 
+let tlibVerson = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true).Value.Version.ToString()
+
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
@@ -74,7 +76,7 @@ match result.CompiledAssembly with
                     ProjectUrl = Some "http://websharper.com"
                     Description = "Zafir bindings for Knockout (3.1.0)"
                     RequiresLicenseAcceptance = true })
-            .AddDependency("Zafir.TypeScript.Lib", forceFoundVersion = true)
+            .AddDependency("Zafir.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
             .AddFile("build/Zafir.Knockout.dll", "lib/net40/Zafir.Knockout.dll")
             .AddFile("README.md", "docs/README.md")
     ]
