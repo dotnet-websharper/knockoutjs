@@ -59,7 +59,7 @@ let tlibVerson = bt.NuGetResolver.FindLatestVersion("Zafir.TypeScript.Lib", true
 match result.CompiledAssembly with
 | None -> ()
 | Some asm ->
-    let out = U.loc ["build/Zafir.Knockout.dll"]
+    let out = U.loc ["build/WebSharper.Knockout.dll"]
     let dir = DirectoryInfo(Path.GetDirectoryName(out))
     if not dir.Exists then
         dir.Create()
@@ -77,7 +77,7 @@ match result.CompiledAssembly with
                     Description = "Zafir bindings for Knockout (3.1.0)"
                     RequiresLicenseAcceptance = true })
             .AddDependency("Zafir.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
-            .AddFile("build/Zafir.Knockout.dll", "lib/net40/Zafir.Knockout.dll")
+            .AddFile("build/WebSharper.Knockout.dll", "lib/net40/WebSharper.Knockout.dll")
             .AddFile("README.md", "docs/README.md")
     ]
     |> bt.Dispatch
