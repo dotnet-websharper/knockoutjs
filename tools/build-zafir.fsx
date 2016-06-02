@@ -32,7 +32,7 @@ let fsCore =
 
 let opts =
     {
-        C.Options.Create("Zafir.Knockout", [dts]) with
+        C.Options.Create("WebSharper.Knockout", [dts]) with
             AssemblyVersion = Some (Version asmVersion)
             Renaming = C.Renaming.RemovePrefix ""
             References = [C.ReferenceAssembly.File lib; C.ReferenceAssembly.File fsCore]
