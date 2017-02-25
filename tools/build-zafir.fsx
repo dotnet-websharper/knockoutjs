@@ -82,7 +82,7 @@ match result.CompiledAssembly with
                     ProjectUrl = Some "http://websharper.com"
                     Description = "Zafir bindings for Knockout (3.1.0)"
                     RequiresLicenseAcceptance = true })
-            .AddDependency("Zafir.TypeScript.Lib", tlibVerson, forceFoundVersion = true)
+            .AddDependency("Zafir.TypeScript.Lib", tlibVersion, forceFoundVersion = true)
             .AddFile("build/WebSharper.Knockout.dll", "lib/net40/WebSharper.Knockout.dll")
             .AddFile("README.md", "docs/README.md")
     ]
