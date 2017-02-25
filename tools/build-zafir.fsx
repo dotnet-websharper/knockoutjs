@@ -1,3 +1,4 @@
+#if INTERACTIVE
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.Core.dll"
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.TypeScript.dll"
 //#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
@@ -6,6 +7,7 @@
 #r "../packages/IntelliFactory.Core/lib/net45/IntelliFactory.Core.dll"
 #r "../packages/IntelliFactory.Build/lib/net45/IntelliFactory.Build.dll"
 #load "utility.fsx"
+#endif
 
 open System
 open System.IO
@@ -14,10 +16,13 @@ module U = Utility
 
 open IntelliFactory.Build
 
-let bt = BuildTool().PackageId("Zafir.Knockout").VersionFrom("Zafir")
+let version = File.ReadAllText(__SOURCE_DIRECTORY__ + "/version.txt")
+let v = Version.Parse version
+let bt =
+    BuildTool().PackageId("Zafir.Knockout", version)
+    |> PackageVersion.Full.Custom v
 
 let asmVersion =
-    let v = PackageVersion.Full.Find(bt)
     sprintf "%i.%i.0.0" v.Major v.Minor
 
 let dts = U.loc ["typings/knockout.d.ts"]
