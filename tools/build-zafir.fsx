@@ -1,4 +1,3 @@
-#if INTERACTIVE
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.Core.dll"
 #r "../packages/Zafir.TypeScript/tools/net40/WebSharper.TypeScript.dll"
 //#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
@@ -7,7 +6,7 @@
 #r "../packages/IntelliFactory.Core/lib/net45/IntelliFactory.Core.dll"
 #r "../packages/IntelliFactory.Build/lib/net45/IntelliFactory.Build.dll"
 #load "utility.fsx"
-#endif
+
 open System
 open System.IO
 module C = WebSharper.TypeScript.Compiler
