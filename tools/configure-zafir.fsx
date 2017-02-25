@@ -17,7 +17,8 @@ let ok =
     && Utility.nuget "install IntelliFactory.Build -pre -o packages -excludeVersion -nocache"
 
 let bt = BuildTool().PackageId("Zafir.Knockout").VersionFrom("Zafir")
-File.WriteAllText(__SOURCE_DIRECTORY__ + "/version.txt", PackageVersion.Full.Find(bt).ToString())
+let version = PackageVersion.Full.Find(bt).ToString()
+File.WriteAllText(__SOURCE_DIRECTORY__ + "/version.txt", version)
 
 printfn "configure: %b" ok
 if not ok then exit 1 else exit 0

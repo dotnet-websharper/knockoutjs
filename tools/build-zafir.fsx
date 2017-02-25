@@ -18,8 +18,9 @@ open IntelliFactory.Build
 
 let version = File.ReadAllText(__SOURCE_DIRECTORY__ + "/version.txt")
 let v = Version.Parse version
+
 let bt =
-    BuildTool().PackageId("Zafir.Knockout", version)
+    BuildTool().PackageId("Zafir.Knockout", version).VersionFrom("Zafir")
     |> PackageVersion.Full.Custom v
 
 let asmVersion =
