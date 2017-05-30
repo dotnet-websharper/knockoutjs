@@ -6,7 +6,7 @@ tools\NuGet\NuGet install Zafir -pre -o packages -excludeVersion -nocache
 tools\NuGet\NuGet install Zafir.TypeScript -pre -o packages -excludeVersion -nocache
 tools\NuGet\NuGet install Zafir.TypeScript.Lib -pre -o packages -excludeVersion -nocache
 tools\NuGet\NuGet install IntelliFactory.Build -pre -o packages -excludeVersion -nocache
-tools\NuGet\NuGet install FSharp.Compiler.Tools -version 4.0.1.21 -o packages -excludeVersion -nocache
+tools\NuGet\NuGet install FSharp.Compiler.Tools -version 4.1.17 -o packages -excludeVersion -nocache
 
 packages\FSharp.Compiler.Tools\tools\fsi.exe --exec tools/configure-zafir.fsx
 
