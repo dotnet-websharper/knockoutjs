@@ -1,6 +1,6 @@
 #if INTERACTIVE
-#r "../packages/Zafir.TypeScript/tools/net40/WebSharper.Core.dll"
-#r "../packages/Zafir.TypeScript/tools/net40/WebSharper.TypeScript.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.Core.dll"
+#r "../packages/WebSharper.TypeScript/tools/net40/WebSharper.TypeScript.dll"
 //#r "C:/dev/websharper.typescript/build/Release/WebSharper.TypeScript.dll"
 #I "../packages/NuGet.Core/lib/net40-client"
 #r "NuGet.Core"
@@ -20,14 +20,14 @@ let version = File.ReadAllText(__SOURCE_DIRECTORY__ + "/version.txt")
 let v = Version.Parse version
 
 let bt =
-    BuildTool().PackageId("Zafir.Knockout", version).VersionFrom("Zafir")
+    BuildTool().PackageId("WebSharper.Knockout", version).VersionFrom("WebSharper")
     |> PackageVersion.Full.Custom v
 
 let asmVersion =
     sprintf "%i.%i.0.0" v.Major v.Minor
 
 let dts = U.loc ["typings/knockout.d.ts"]
-let lib = U.loc ["packages/Zafir.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
+let lib = U.loc ["packages/WebSharper.TypeScript.Lib/lib/net40/WebSharper.TypeScript.Lib.dll"]
 let snk = U.loc [Environment.GetEnvironmentVariable("INTELLIFACTORY"); "keys/IntelliFactory.snk"]
 
 let fsCore =
@@ -77,12 +77,12 @@ match result.CompiledAssembly with
             .Configure(fun c ->
                 { c with
                     Authors = ["IntelliFactory"]
-                    Title = Some "Zafir.Knockout 3.1.0"
+                    Title = Some "WebSharper.Knockout 3.1.0"
                     LicenseUrl = Some "http://websharper.com/licensing"
                     ProjectUrl = Some "http://websharper.com"
-                    Description = "Zafir bindings for Knockout (3.1.0)"
+                    Description = "WebSharper bindings for Knockout (3.1.0)"
                     RequiresLicenseAcceptance = true })
-            .AddDependency("Zafir.TypeScript.Lib", tlibVersion, forceFoundVersion = true)
+            .AddDependency("WebSharper.TypeScript.Lib", tlibVersion, forceFoundVersion = true)
             .AddFile("build/WebSharper.Knockout.dll", "lib/net40/WebSharper.Knockout.dll")
             .AddFile("README.md", "docs/README.md")
     ]
