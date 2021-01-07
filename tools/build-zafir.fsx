@@ -20,7 +20,7 @@ let version = File.ReadAllText(__SOURCE_DIRECTORY__ + "/version.txt")
 let v = Version.Parse version
 
 let bt =
-    BuildTool().PackageId("WebSharper.Knockout", version).VersionFrom("WebSharper")
+    BuildTool().PackageId("WebSharper.Knockout", version).VersionFrom("WebSharper", "", "[4.0,5.0)")
     |> PackageVersion.Full.Custom v
 
 let asmVersion =
